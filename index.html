@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proyecto Base - Inicio</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .formulario {
+      margin-bottom: 30px;
+    }
+
+    input {
+      margin: 10px;
+      padding: 10px;
+      width: 250px;
+      font-size: 16px;
+    }
+
+    button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+
+    .menu-principal {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>MI.EMI</h1>
+    <p>Versión prelimInar</p>
+  </header>
+
+  <main>
+    <div class="formulario">
+      <input type="text" id="nombre" placeholder="Nombre completo">
+      <input type="text" id="saga" placeholder="Código SAGA">
+      <br>
+      <button onclick="verificarAcceso()">Ingresar</button>
+    </div>
+
+    <section class="menu-principal" id="menu">
+      <button onclick="location.href='datos1.html'">📄 Datos Personales</button>
+      <button onclick="location.href='datos2.html'">📌 Datos Disciplinarios</button>
+      <button onclick="location.href='datos3.html'">👥 Datos de Encargado</button>
+      <button onclick="location.href='datos4.html'">📘 Datos Académicos</button>
+    </section>
+  </main>
+
+  <footer>
+    <p>Todos tus datos en un solo lugar.</p>
+  </footer>
+
+  <script>
+  function verificarAcceso() {
+  const nombre = document.getElementById("nombre").value.trim().toLowerCase();
+  const saga = document.getElementById("saga").value.trim().toUpperCase();
+
+  const usuarios = {
+    "andres ruben vargas pradel": { codigo: "R2342-6", pagina: "menu.html" },
+    "junior dante ibañez rodriguez": { codigo: "R2337-X", pagina: "menu.html" },
+    "rodrigo rodriguez nascimento": { codigo: "R2302-7", pagina: "menu.html" } // corregido
+  };
+
+  if (usuarios[nombre] && usuarios[nombre].codigo === saga) {
+    localStorage.setItem("usuarioActual", nombre); // mover aquí
+    window.location.href = usuarios[nombre].pagina;
+  } else {
+    alert("Acceso denegado. Verifica tus datos.");
+  }
+}
+
+</script>
+
+</body>
+</html>

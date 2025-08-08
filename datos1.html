@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Datos Importantes 1</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f7f7f7;
+    }
+
+    .contenedor {
+      max-width: 700px;
+      margin: auto;
+      background-color: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: left;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .campo {
+      margin: 10px 0;
+    }
+
+    .campo strong {
+      display: inline-block;
+      width: 220px;
+      font-weight: bold;
+    }
+
+    .motivacion {
+      margin-top: 30px;
+      padding: 15px;
+      background-color: #e0ffe0;
+      border-left: 5px solid #2ecc71;
+    }
+
+    .boton-volver {
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    .boton-volver button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .boton-volver button:hover {
+      background-color: #2980b9;
+    }
+  </style>
+</head>
+<body>
+  <div class="contenedor" id="contenido">
+    <!-- Aquí se carga el contenido personalizado -->
+  </div>
+
+  <div class="boton-volver">
+    <button onclick="window.location.href='menu.html'">Volver al menú</button>
+  </div>
+
+  <script>
+    const usuario = localStorage.getItem("usuarioActual");
+
+    const datos = {
+      "andres ruben vargas pradel": `
+        <h2>Andrés Rubén Vargas Pradel</h2>
+        <div class="campo"><strong>Becado:</strong> Sí</div>
+        <hr>
+        <div class="campo"><strong>Nombre completo:</strong> Andrés Rubén Vargas Pradel</div>
+        <div class="campo"><strong>Fecha de nacimiento:</strong> 2 de febrero de 2004</div>
+        <div class="campo"><strong>Edad:</strong> 21 años</div>
+        <div class="campo"><strong>Fecha de ingreso a la institución:</strong> 10 de enero de 2022</div>
+        <hr>
+        <div class="campo"><strong>Carrera:</strong> Ingeniería de Sistemas</div>
+        <div class="campo"><strong>Año actual:</strong> 4to año</div>
+        <div class="campo"><strong>Logros destacados:</strong> Ganador en concursos de IA, ponente en eventos académicos</div>
+        <div class="campo"><strong>Aspiraciones:</strong> Crear una empresa de tecnología educativa</div>
+        <div class="campo"><strong>Ocupación actual:</strong> Auxiliar de programación</div>
+        <div class="motivacion">
+          🌟 ¡Sigue así Andrés! Tus esfuerzos han sido reconocidos con una beca. Estás construyendo un gran futuro. 💪
+        </div>
+      `,
+
+      "junior dante ibañez rodriguez": `
+        <h2>Junior Dante Ibañez Rodríguez</h2>
+        <div class="campo"><strong>Becado:</strong> No</div>
+        <hr>
+        <div class="campo"><strong>Nombre completo:</strong> Junior Dante Ibañez Rodríguez</div>
+        <div class="campo"><strong>Fecha de nacimiento:</strong> 8 de mayo de 2003</div>
+        <div class="campo"><strong>Edad:</strong> 22 años</div>
+        <div class="campo"><strong>Fecha de ingreso a la institución:</strong> 8 de enero de 2021</div>
+        <hr>
+        <div class="campo"><strong>Carrera:</strong> Ingeniería de Sistemas</div>
+        <div class="campo"><strong>Año actual:</strong> 4to año</div>
+        <div class="campo"><strong>Logros destacados:</strong> Participación en ferias tecnológicas</div>
+        <div class="campo"><strong>Aspiraciones:</strong> Trabajar como ingeniero backend</div>
+        <div class="campo"><strong>Ocupación actual:</strong> Desarrollador freelance</div>
+      `,
+
+      "rodrigo rodrigez nascimento": `
+        <h2>Rodrigo Rodríguez Nascimento</h2>
+        <div class="campo"><strong>Becado:</strong> Sí</div>
+        <hr>
+        <div class="campo"><strong>Nombre completo:</strong> Rodrigo Rodríguez Nascimento</div>
+        <div class="campo"><strong>Fecha de nacimiento:</strong> 10 de octubre de 2002</div>
+        <div class="campo"><strong>Edad:</strong> 23 años</div>
+        <div class="campo"><strong>Fecha de ingreso a la institución:</strong> 12 de febrero de 2020</div>
+        <hr>
+        <div class="campo"><strong>Carrera:</strong> Ingeniería de Sistemas</div>
+        <div class="campo"><strong>Año actual:</strong> 4to año</div>
+        <div class="campo"><strong>Logros destacados:</strong> Asistente en proyectos de investigación</div>
+        <div class="campo"><strong>Aspiraciones:</strong> Hacer maestría en ciencias de datos</div>
+        <div class="campo"><strong>Ocupación actual:</strong> Investigador junior</div>
+        <div class="motivacion">
+          ✨ Rodrigo, tu rendimiento te ha llevado a obtener una beca. ¡Aprovecha esta gran oportunidad! 🚀
+        </div>
+      `
+    };
+
+    const contenedor = document.getElementById("contenido");
+
+    if (usuario && datos[usuario.toLowerCase()]) {
+      contenedor.innerHTML = datos[usuario.toLowerCase()];
+    } else {
+      contenedor.innerHTML = "<p>No se ha encontrado información del usuario.</p>";
+    }
+  </script>
+</body>
+</html>
+

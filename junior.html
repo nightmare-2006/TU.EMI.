@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Datos Importantes 1</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f7f7f7;
+    }
+    .contenedor {
+      max-width: 700px;
+      margin: auto;
+      background-color: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: left;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .campo {
+      margin: 10px 0;
+    }
+    .campo strong {
+      display: inline-block;
+      width: 220px;
+      font-weight: bold;
+    }
+    .motivacion {
+      margin-top: 30px;
+      padding: 15px;
+      background-color: #e0ffe0;
+      border-left: 5px solid #2ecc71;
+    }
+    .boton-volver {
+      margin-top: 30px;
+      text-align: center;
+    }
+    .boton-volver button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .boton-volver button:hover {
+      background-color: #2980b9;
+    }
+  </style>
+</head>
+<body>
+  <div class="contenedor" id="contenido">
+    <!-- Aquí se carga el contenido personalizado -->
+  </div>
+
+  <div class="boton-volver">
+    <button onclick="window.location.href='menu.html'">Volver al menú</button>
+  </div>
+
+  <script>
+    function normalizarTexto(texto) {
+      return texto
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLowerCase()
+        .trim();
+    }
+
+    const usuario = localStorage.getItem("usuarioActual") || "";
+    const nombreNormalizado = normalizarTexto(usuario);
+
+    const datos = {
+      "andres ruben vargas pradel": `
+        <h2>Andrés Rubén Vargas Pradel</h2>
+        <div class="campo"><strong>Becado:</strong> Sí</div>
+        <hr>
+        <div class="campo"><strong>Nombre completo:</strong> Andrés Rubén Vargas Pradel</div>
+        <div class="campo"><strong>Fecha de nacimiento:</strong> 2 de febrero de 2004</div>
+        <div class="campo"><strong>Edad:</strong> 21 años</div>
+        <div class="campo"><strong>Fecha de ingreso:</strong> 10 de enero de 2022</div>
+        <hr>
+        <div class="campo"><strong>Carrera:</strong> Ingeniería de Sistemas</div>
+        <div class="campo"><strong>Año actual:</strong> 4to año</div>
+        <div class="campo"><strong>Logros:</strong> Ganador en concursos de IA, ponente en eventos</div>
+        <div class="campo"><strong>Aspiraciones:</strong> Crear una empresa de tecnología educativa</div>
+        <div class="campo"><strong>Ocupación:</strong> Auxiliar de programación</div>
+        <div class="motivacion">🌟 ¡Sigue así Andrés! Tus esfuerzos han sido reconocidos. 💪</div>
+      `,
+      "junior dante ibañez rodriguez": `
+        <h2>Junior Dante Ibañez Rodríguez</h2>
+        <div class="campo"><strong>Becado:</strong> No</div>
+        <hr>
+        <div class="campo"><strong>Nombre completo:</strong> Junior Dante Ibañez Rodríguez</div>
+        <div class="campo"><strong>Fecha de nacimiento:</strong> 8 de mayo de 2003</div>
+        <div class="campo"><strong>Edad:</strong> 22 años</div>
+        <div class="campo"><strong>Fecha de ingreso:</strong> 8 de enero de 2021</div>
+        <hr>
+        <div class="campo"><strong>Carrera:</strong> Ingeniería de Sistemas</div>
+        <div class="campo"><strong>Año actual:</strong> 4to año</div>
+        <div class="campo"><strong>Logros:</strong> Participación en ferias tecnológicas</div>
+        <div class="campo"><strong>Aspiraciones:</strong> Trabajar como ingeniero backend</div>
+        <div class="campo"><strong>Ocupación:</strong> Desarrollador freelance</div>
+      `,
+      "rodrigo rodriguez nascimento": `
+        <h2>Rodrigo Rodríguez Nascimento</h2>
+        <div class="campo"><strong>Becado:</strong> Sí</div>
+        <hr>
+        <div class="campo"><strong>Nombre completo:</strong> Rodrigo Rodríguez Nascimento</div>
+        <div class="campo"><strong>Fecha de nacimiento:</strong> 10 de octubre de 2002</div>
+        <div class="campo"><strong>Edad:</strong> 23 años</div>
+        <div class="campo"><strong>Fecha de ingreso:</strong> 12 de febrero de 2020</div>
+        <hr>
+        <div class="campo"><strong>Carrera:</strong> Ingeniería de Sistemas</div>
+        <div class="campo"><strong>Año actual:</strong> 4to año</div>
+        <div class="campo"><strong>Logros:</strong> Proyectos de investigación</div>
+        <div class="campo"><strong>Aspiraciones:</strong> Maestría en ciencias de datos</div>
+        <div class="campo"><strong>Ocupación:</strong> Investigador junior</div>
+        <div class="motivacion">✨ Rodrigo, tu rendimiento te ha llevado a obtener una beca. 🚀</div>
+      `
+    };
+
+    const contenedor = document.getElementById("contenido");
+
+    if (usuario && datos[nombreNormalizado]) {
+      contenedor.innerHTML = datos[nombreNormalizado];
+    } else {
+      contenedor.innerHTML = "<p>No se ha encontrado información del usuario.</p>";
+    }
+  </script>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Datos Importantes 2 - Disciplina</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f2f5;
+      padding: 20px;
+    }
+
+    .contenedor {
+      max-width: 700px;
+      margin: auto;
+      background-color: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .campo {
+      margin: 12px 0;
+    }
+
+    .campo strong {
+      display: inline-block;
+      width: 320px;
+      font-weight: bold;
+    }
+
+    .mensaje-disciplina {
+      margin-top: 30px;
+      padding: 15px;
+      background-color: #e0f7e0;
+      border-left: 5px solid #27ae60;
+      display: none;
+    }
+
+    .boton-volver {
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    .boton-volver button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .boton-volver button:hover {
+      background-color: #2980b9;
+    }
+  </style>
+</head>
+<body>
+  <div class="contenedor">
+    <h2>Evaluación de Disciplina</h2>
+
+    <div class="campo"><strong>¿Recibe llamados de atención en clase?:</strong> <span class="dato" id="atencionClases"></span></div>
+    <div class="campo"><strong>¿Mala conducta en eventos institucionales?:</strong> <span class="dato" id="eventos"></span></div>
+    <div class="campo"><strong>¿Falta de entrega de tareas?:</strong> <span class="dato" id="tareas"></span></div>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Datos Importantes 3 - Encargados</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #eef1f5;
+      padding: 20px;
+    }
+
+    .contenedor {
+      max-width: 700px;
+      margin: auto;
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .campo {
+      margin: 15px 0;
+    }
+
+    .campo strong {
+      display: inline-block;
+      width: 320px;
+      font-weight: bold;
+    }
+
+    .boton-volver {
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    .boton-volver button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .boton-volver button:hover {
+      background-color: #2980b9;
+    }
+  </style>
+</head>
+<body>
+  <div class="contenedor">
+    <h2>Encargados y Responsables</h2>
+
+    <div class="campo">
+      <strong>Instructor principal:</strong>
+      <span>TTE.CAB. COLQUE MICHEL ALBERT ADALID</span>
+    </div>
+
+    <div class="campo">
+      <strong>Instructor auxiliar:</strong>
+      <span>TTE.INF. PRUDENCIO MIRANDA RONALD FERNANDO</span>
+    </div>
+
+    <div class="boton-volver">
+      <button onclick="history.back()">Volver al menú principal</button>
+    </div>
+  </div>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Datos Académicos</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #eef2f5;
+      padding: 20px;
+    }
+
+    .contenedor {
+      max-width: 900px;
+      margin: auto;
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .materia {
+      margin-bottom: 25px;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 15px;
+    }
+
+    .materia h3 {
+      color: #2c3e50;
+      margin-bottom: 10px;
+    }
+
+    .dato {
+      margin-left: 15px;
+    }
+
+    .descargas {
+      margin-top: 30px;
+      padding: 20px;
+      background-color: #f5faff;
+      border-left: 5px solid #3498db;
+    }
+
+    .descargas h3 {
+      margin-bottom: 15px;
+    }
+
+    .descargas ul {
+      padding-left: 20px;
+    }
+
+    .descargas ul li {
+      margin: 5px 0;
+    }
+
+    .boton-volver {
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    .boton-volver button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .boton-volver button:hover {
+      background-color: #2980b9;
+    }
+  </style>
+</head>
+<body>
+  <div class="contenedor">
+    <h2>Datos Académicos</h2>
+
+    <!-- Materias -->
+    <div class="materia">
+      <h3>Programación</h3>
+      <p class="dato"><strong>Docente:</strong> ING. KEN CANAMARI TERRAZAS</p>
+      <p class="dato"><strong>Pendientes:</strong> Proyecto final, prácticas semanales</p>
+    </div>
+
+    <div class="materia">
+      <h3>Cálculo II</h3>
+      <p class="dato"><strong>Docente:</strong> ING. WALDO CRISTIAN SAENZ OLMOS</p>
+      <p class="dato"><strong>Pendientes:</strong> Guía de integrales, segundo parcial</p>
+    </div>
+
+    <div class="materia">
+      <h3>Estadística</h3>
+      <p class="dato"><strong>Docente:</strong> ING. DELICIA GARCIA MORATO</p>
+      <p class="dato"><strong>Pendientes:</strong> Taller de probabilidades, práctica de Excel</p>
+    </div>
+
+    <div class="materia">
+      <h3>Álgebra Lineal</h3>
+      <p class="dato"><strong>Docente:</strong> ING. JORGE ONISHI ROCA</p>
+      <p class="dato"><strong>Pendientes:</strong> Matrices inversas, tarea de vectores</p>
+    </div>
+
+    <div class="materia">
+      <h3>Estructura y Complementos de la Computación</h3>
+      <p class="dato"><strong>Docente:</strong> ING. FERNANDO LIMACHUI QUISPE</p>
+      <p class="dato"><strong>Pendientes:</strong> Lectura de arquitectura, práctica en simulador</p>
+    </div>
+
+    <div class="materia">
+      <h3>Física II</h3>
+      <p class="dato"><strong>Docente:</strong> ING. MARA RIMBA DE LA BARRA</p>
+      <p class="dato"><strong>Pendientes:</strong> Informe de laboratorio, examen de circuitos</p>
+    </div>
+
+    <!-- Recursos descargables -->
+    <div class="descargas">
+      <h3>📘 Recursos para Estudiar</h3>
+      <ul>
+        <li><a href="docs/programacion.pdf" download>Guía de Programación</a></li>
+        <li><a href="docs/calculo2.pdf" download>Ejercicios de Cálculo II</a></li>
+        <li><a href="docs/estadistica.pdf" download>Apuntes de Estadística</a></li>
+        <li><a href="docs/algebra_lineal.pdf" download>Resumen de Álgebra Lineal</a></li>
+        <li><a href="docs/estructura_computacion.pdf" download>Manual de Computación</a></li>
+        <li><a href="docs/fisica2.pdf" download>Guía de Física II</a></li>
+      </ul>
+    </div>
+
+    <!-- Botón para volver -->
+    <div class="boton-volver">
+      <button onclick="history.back()">Volver al menú principal</button>
+    </div>
+  </div>
+</body>
+</html>
+
+
+
+
+
+
