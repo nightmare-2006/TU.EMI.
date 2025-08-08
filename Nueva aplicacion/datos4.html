@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Datos Académicos</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #eef2f5;
+      padding: 20px;
+    }
+
+    .contenedor {
+      max-width: 900px;
+      margin: auto;
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .materia {
+      margin-bottom: 25px;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 15px;
+    }
+
+    .materia h3 {
+      color: #2c3e50;
+      margin-bottom: 10px;
+    }
+
+    .dato {
+      margin-left: 15px;
+    }
+
+    .descargas {
+      margin-top: 30px;
+      padding: 20px;
+      background-color: #f5faff;
+      border-left: 5px solid #3498db;
+    }
+
+    .descargas h3 {
+      margin-bottom: 15px;
+    }
+
+    .descargas ul {
+      padding-left: 20px;
+    }
+
+    .descargas ul li {
+      margin: 5px 0;
+    }
+
+    .boton-volver {
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    .boton-volver button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .boton-volver button:hover {
+      background-color: #2980b9;
+    }
+  </style>
+</head>
+<body>
+  <div class="contenedor">
+    <h2>Datos Académicos</h2>
+
+    <!-- Materias -->
+    <div class="materia">
+      <h3>Programación</h3>
+      <p class="dato"><strong>Docente:</strong> ING. KEN CANAMARI TERRAZAS</p>
+      <p class="dato"><strong>Pendientes:</strong> Proyecto final, prácticas semanales</p>
+    </div>
+
+    <div class="materia">
+      <h3>Cálculo II</h3>
+      <p class="dato"><strong>Docente:</strong> ING. WALDO CRISTIAN SAENZ OLMOS</p>
+      <p class="dato"><strong>Pendientes:</strong> Guía de integrales, segundo parcial</p>
+    </div>
+
+    <div class="materia">
+      <h3>Estadística</h3>
+      <p class="dato"><strong>Docente:</strong> ING. DELICIA GARCIA MORATO</p>
+      <p class="dato"><strong>Pendientes:</strong> Taller de probabilidades, práctica de Excel</p>
+    </div>
+
+    <div class="materia">
+      <h3>Álgebra Lineal</h3>
+      <p class="dato"><strong>Docente:</strong> ING. JORGE ONISHI ROCA</p>
+      <p class="dato"><strong>Pendientes:</strong> Matrices inversas, tarea de vectores</p>
+    </div>
+
+    <div class="materia">
+      <h3>Estructura y Complementos de la Computación</h3>
+      <p class="dato"><strong>Docente:</strong> ING. FERNANDO LIMACHUI QUISPE</p>
+      <p class="dato"><strong>Pendientes:</strong> Lectura de arquitectura, práctica en simulador</p>
+    </div>
+
+    <div class="materia">
+      <h3>Física II</h3>
+      <p class="dato"><strong>Docente:</strong> ING. MARA RIMBA DE LA BARRA</p>
+      <p class="dato"><strong>Pendientes:</strong> Informe de laboratorio, examen de circuitos</p>
+    </div>
+
+    <!-- Recursos descargables -->
+    <div class="descargas">
+      <h3>📘 Recursos para Estudiar</h3>
+      <ul>
+        <li><a href="docs/programacion.pdf" download>Guía de Programación</a></li>
+        <li><a href="docs/calculo2.pdf" download>Ejercicios de Cálculo II</a></li>
+        <li><a href="docs/estadistica.pdf" download>Apuntes de Estadística</a></li>
+        <li><a href="docs/algebra_lineal.pdf" download>Resumen de Álgebra Lineal</a></li>
+        <li><a href="docs/estructura_computacion.pdf" download>Manual de Computación</a></li>
+        <li><a href="docs/fisica2.pdf" download>Guía de Física II</a></li>
+      </ul>
+    </div>
+
+    <!-- Botón para volver -->
+    <div class="boton-volver">
+      <button onclick="history.back()">Volver al menú principal</button>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Datos Importantes 2 - Disciplina</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f2f5;
+      padding: 20px;
+    }
+
+    .contenedor {
+      max-width: 700px;
+      margin: auto;
+      background-color: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .campo {
+      margin: 12px 0;
+    }
+
+    .campo strong {
+      display: inline-block;
+      width: 320px;
+      font-weight: bold;
+    }
+
+    .mensaje-disciplina {
+      margin-top: 30px;
+      padding: 15px;
+      background-color: #e0f7e0;
+      border-left: 5px solid #27ae60;
+      display: none;
+    }
+
+    .boton-volver {
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    .boton-volver button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .boton-volver button:hover {
+      background-color: #2980b9;
+    }
+  </style>
+</head>
+<body>
+  <div class="contenedor">
+    <h2>Evaluación de Disciplina</h2>
+
+    <div class="campo"><strong>¿Recibe llamados de atención en clase?:</strong> <span class="dato" id="atencionClases"></span></div>
+    <div class="campo"><strong>¿Mala conducta en eventos institucionales?:</strong> <span class="dato" id="eventos"></span></div>
+    <div class="campo"><strong>¿Falta de entrega de tareas?:</strong> <span class="dato" id="tareas"></span></div>
+    <div class="campo"><strong>¿Llega tarde frecuentemente?:</strong> <span class="dato" id="tardanza"></span></div>
+    <div class="campo"><strong>¿Cumple con el uso del uniforme?:</strong> <span class="dato" id="uniforme"></span></div>
+    <div class="campo"><strong>¿Cuida su imagen personal dentro de la institución?:</strong> <span class="dato" id="imagen"></span></div>
+
+    <div class="mensaje-disciplina" id="mensajeDisciplina">
+      👏 ¡Excelente! Este estudiante demuestra responsabilidad, orden y respeto por las normas institucionales. Sigue así.
+    </div>
+
+    <div class="boton-volver">
+      <button onclick="window.location.href='menu.html'">Volver al menú principal</button>
+    </div>
+  </div>
+
+  <script>
+    const usuario = localStorage.getItem("usuarioActual");
+
+    const disciplina = {
+      "andres ruben vargas pradel": {
+        atencionClases: "No",
+        eventos: "No",
+        tareas: "No",
+        tardanza: "No",
+        uniforme: "Sí",
+        imagen: "Sí"
+      },
+      "junior dante ibañez rodriguez": {
+        atencionClases: "Sí",
+        eventos: "No",
+        tareas: "Sí",
+        tardanza: "No",
+        uniforme: "Sí",
+        imagen: "No"
+      },
+      "rodrigo rodrigez nascimento": {
+        atencionClases: "No",
+        eventos: "No",
+        tareas: "No",
+        tardanza: "No",
+        uniforme: "Sí",
+        imagen: "Sí"
+      }
+    };
+
+    const nombre = usuario ? usuario.trim().toLowerCase() : "";
+
+    if (disciplina[nombre]) {
+      const datos = disciplina[nombre];
+
+      document.getElementById("atencionClases").textContent = datos.atencionClases;
+      document.getElementById("eventos").textContent = datos.eventos;
+      document.getElementById("tareas").textContent = datos.tareas;
+      document.getElementById("tardanza").textContent = datos.tardanza;
+      document.getElementById("uniforme").textContent = datos.uniforme;
+      document.getElementById("imagen").textContent = datos.imagen;
+
+      const todoCorrecto =
+        datos.atencionClases.toLowerCase() === "no" &&
+        datos.eventos.toLowerCase() === "no" &&
+        datos.tareas.toLowerCase() === "no" &&
+        datos.tardanza.toLowerCase() === "no" &&
+        datos.uniforme.toLowerCase() === "sí" &&
+        datos.imagen.toLowerCase() === "sí";
+
+      if (todoCorrecto) {
+        document.getElementById("mensajeDisciplina").style.display = "block";
+      }
+    } else {
+      document.querySelector(".contenedor").innerHTML = "<h2>No se encontró información del estudiante.</h2>";
+    }
+  </script>
+</body>
+</html>
